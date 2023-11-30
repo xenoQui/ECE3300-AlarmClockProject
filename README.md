@@ -18,7 +18,7 @@ Within each folder, the code is uploaded as v1, v2, v3... for each major change.
 
 From the Vivado project folder, upload the content within the sources folder.
 
-The sources folder is `ProjectName.srcs`.
+The sources folder is `{ProjectName}.srcs`.
 
 While in the **_.srcs_** folder, upload:
 - constrs_#
