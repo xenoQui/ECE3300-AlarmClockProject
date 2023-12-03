@@ -14,6 +14,8 @@ This repo is broken into 3 parts:
 
 Within each folder, the code is uploaded as v1, v2, v3... for each major change. This allows us to keep track of changes and differentiate working code with broken code.
 
+Read [changelog.md](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Changelog.md) for an overview of all version information.
+
 ## Uploading Code
 
 From the Vivado project folder, upload the content within the sources folder.
