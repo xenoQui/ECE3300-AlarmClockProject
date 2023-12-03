@@ -14,8 +14,6 @@ This repo is broken into 3 parts:
 
 Within each folder, the code is uploaded as v1, v2, v3... for each major change. This allows us to keep track of changes and differentiate working code with broken code.
 
-Read [changelog.md](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Changelog.md) for an overview of all version information.
-
 ## Uploading Code
 
 From the Vivado project folder, upload the content within the sources folder.
@@ -26,3 +24,24 @@ While in the **_.srcs_** folder, upload:
 - constrs_#
 - sim_#
 - sources_#
+
+## Changelog
+
+### [Alarm](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Alarm) (Standalone)
+- [v1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Alarm/v1)
+  - WIP
+
+### [Clock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock) (Standalone)
+
+- v2.1
+  - WIP
+- [v2.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.0)
+  - Rewritten code based off v1
+  - Has a working minute counter 00 -> 59
+  - Load also works; however, when changing to another digit the previous load value gets carried over.
+- [v1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v1) (**_DOES NOT WORK_**)
+  - Initial code written for a 24 hour clock (00:00 -> 23:59)
+
+### Alarm Clock (Combined)
+- v1
+  - WIP
