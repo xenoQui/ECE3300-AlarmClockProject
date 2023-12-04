@@ -33,8 +33,11 @@ While in the **_.srcs_** folder, upload:
 
 ### [Clock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock) (Standalone)
 
-- v2.1
-  - WIP
+- [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.1)
+  - Working 24 hour clock 00:00 -> 23:59
+  - Added hour: 00 -> 23
+  - Decreased clk time for load
+  - Timing for MIN_0 counter is 1 Hz (increments every 1 sec)
 - [v2.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.0)
   - Rewritten code based off v1
   - Has a working minute counter 00 -> 59
