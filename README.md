@@ -33,6 +33,8 @@ While in the **_.srcs_** folder, upload:
 
 ### [Clock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock) (Standalone)
 
+_Note: clock.v is top file [v1 -> v2.1]_
+
 - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.1)
   - Working 24 hour clock 00:00 -> 23:59
   - Added hour: 00 -> 23
