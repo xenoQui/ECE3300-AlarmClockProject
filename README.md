@@ -35,6 +35,11 @@ While in the **_.srcs_** folder, upload:
 
 _Note: clock.v is top file [v1 -> v2.1]_
 
+- [v3](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v3)
+  - Updated MIN_0 counter timing to be 60 secs
+  - Edited [min.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/min.v) so that every 60 secs the counter will increment
+  - Added `or posedge ucb_rst` to [ucb.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/ucb.v) as a condition for the always block
+    - This takes into account to reset the clock whenever possible
 - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.1)
   - Working 24 hour clock 00:00 -> 23:59
   - Added hour: 00 -> 23
@@ -43,7 +48,7 @@ _Note: clock.v is top file [v1 -> v2.1]_
 - [v2.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.0)
   - Rewritten code based off v1
   - Has a working minute counter 00 -> 59
-  - Load also works; however, when changing to another digit the previous load value gets carried over.
+  - Load also works; however, when changing to another digit the previous load value gets carried over
 - [v1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v1) (**_DOES NOT WORK_**)
   - Initial code written for a 24 hour clock (00:00 -> 23:59)
 
