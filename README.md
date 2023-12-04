@@ -39,7 +39,7 @@ _Note: clock.v is top file [v1 -> v3]_
   - Updated MIN_0 counter timing to be 60 secs
   - Edited [min.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/min.v) so that every 60 secs the counter will increment
   - Added `or posedge ucb_rst` to [ucb.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/ucb.v) as a condition for the always block
-    - This takes into account to reset the clock whenever possible
+    - Allows the clock to be reset at any time
 - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.1)
   - Working 24 hour clock 00:00 -> 23:59
   - Added hour: 00 -> 23
