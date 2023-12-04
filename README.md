@@ -33,7 +33,7 @@ While in the **_.srcs_** folder, upload:
 
 ### [Clock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock) (Standalone)
 
-_Note: clock.v is top file [v1 -> v2.1]_
+_Note: clock.v is top file [v1 -> v3]_
 
 - [v3](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v3)
   - Updated MIN_0 counter timing to be 60 secs
