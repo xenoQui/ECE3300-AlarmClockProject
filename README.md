@@ -63,6 +63,8 @@ _[v1 -> v3] clock.v is top file_
 _alarmclock.v is top file_
 
 - [v1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v1)
+  - Updated the [constraints file](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/AlarmClock/v1/constrs_1/new/Nexys-A7-100T-Master.xdc) to work with the new top file
+  - Added a reset switch for the minute counter
   - clk_load is instantiated in top
   - 7 segment display code is instantiated in top
   - [clock.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/AlarmClock/v1/sources_1/new/clock.v) is instantiated within top
