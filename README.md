@@ -35,7 +35,7 @@ While in the **_.srcs_** folder, upload:
 
 _[v1 -> v3] clock.v is top file_
 
-- v4 (**_WIP_**)
+- [v4]() (**_WIP_**)
   - clock.v as module
   - testbench
 - [v3](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v3)
@@ -62,7 +62,13 @@ _[v1 -> v3] clock.v is top file_
 
 _alarmclock.v is top file_
 
-- [v1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v1)
+- [v1.1]() (**_WIP_**)
+  - Add LEDs
+    - switch to enable or disable input LEDs
+    - clock en, load, rst, minute rst
+    - 4 LEDs for load number
+    - 4 LEDs to show which up counter is being loaded
+- [v1.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v1)
   - Updated the [constraints file](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/AlarmClock/v1/constrs_1/new/Nexys-A7-100T-Master.xdc) to work with the new top file
   - Added a reset switch for the minute counter
   - clk_load is instantiated in top
