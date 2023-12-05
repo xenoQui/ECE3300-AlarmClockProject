@@ -33,7 +33,7 @@ While in the **_.srcs_** folder, upload:
 
 ### [Clock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock) (Standalone)
 
-_Note: clock.v is top file [v1 -> v3]_
+_[v1 -> v3] clock.v is top file_
 
 - v4 (**_WIP_**)
   - clock.v as module
@@ -58,7 +58,7 @@ _Note: clock.v is top file [v1 -> v3]_
 - [v1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v1) (**_DOES NOT WORK_**)
   - Initial code written for a 24 hour clock (00:00 -> 23:59)
 
-### Alarm Clock (Combined)
+### [AlarmClock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock) (Combined)
 
 _alarmclock.v is top file_
 
