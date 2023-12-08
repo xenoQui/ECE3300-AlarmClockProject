@@ -40,6 +40,8 @@ While in the **_.srcs_** folder, upload:
   - [v2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2)
     - Add alarm load functionality within clock
     - Create sound function and is played whenever the clock & alarm matches
+  - [v1.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v1.1) (**_LEDs not tested_**)
+    - This is uploaded as a reference 
   - [v1.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v1)
     - Updated the [constraints file](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/AlarmClock/v1/constrs_1/new/Nexys-A7-100T-Master.xdc) to work with the new top file
     - Added a reset switch for the minute counter
