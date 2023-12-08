@@ -60,7 +60,7 @@ _alarmclock.v is top file_
 - [v2.1]() (**_WIP_**)
   - Add LEDs
     - switch to enable or disable input LEDs
-    - clock en, load, rst, minute rst
+    - clock en, alarm en, load, rst, minute rst
     - 4 LEDs for load number
     - 4 LEDs to show which up counter is being loaded
 - [v2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2)
