@@ -8,9 +8,9 @@ Hardware: [Nexys A7-100T](https://www.xilinx.com/products/boards-and-kits/1-6olh
 ## Repo Information
 
 This repo is broken into 3 parts:
-- AlarmClock (Final/Combined)
-- Alarm (Sound)
-- Clock (Standalone)
+1. AlarmClock (Final/Combined)
+2. Alarm (Sound)
+3. Clock (Standalone)
 
 Within each folder, the code is uploaded as v1, v2, v3... for each major change. This allows us to keep track of changes and differentiate working code with broken code.
 
