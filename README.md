@@ -7,10 +7,9 @@ Hardware: [Nexys A7-100T](https://www.xilinx.com/products/boards-and-kits/1-6olh
 
 ## Repo Information
 
-This repo is broken into 3 parts:
-- Alarm (Standalone)
+This repo is broken into 2 parts:
 - Clock (Standalone)
-- AlarmClock (Combined)
+- AlarmClock (Final/Combined)
 
 Within each folder, the code is uploaded as v1, v2, v3... for each major change. This allows us to keep track of changes and differentiate working code with broken code.
 
@@ -26,10 +25,6 @@ While in the **_.srcs_** folder, upload:
 - sources_#
 
 ## Changelog
-
-### [Alarm](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Alarm) (Standalone)
-- [v1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Alarm/v1)
-  - WIP
 
 ### [Clock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock) (Standalone)
 
@@ -62,12 +57,15 @@ _[v1 -> v3] clock.v is top file_
 
 _alarmclock.v is top file_
 
-- [v1.1]() (**_WIP_**)
+- [v2.1]() (**_WIP_**)
   - Add LEDs
     - switch to enable or disable input LEDs
     - clock en, load, rst, minute rst
     - 4 LEDs for load number
     - 4 LEDs to show which up counter is being loaded
+- [v2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2)
+  - Add alarm load functionality within clock
+  - Create sound function and is played whenever the clock & alarm matches
 - [v1.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v1)
   - Updated the [constraints file](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/AlarmClock/v1/constrs_1/new/Nexys-A7-100T-Master.xdc) to work with the new top file
   - Added a reset switch for the minute counter
