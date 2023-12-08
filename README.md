@@ -37,7 +37,7 @@ While in the **_.srcs_** folder, upload:
       - clock en, alarm en, load, rst, minute rst
       - 4 LEDs for load number
       - 4 LEDs to show which up counter is being loaded
-  - [v2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2)
+  - [v2.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2)
     - Add alarm load functionality within clock
     - Create sound function and is played whenever the clock & alarm matches
   - [v1.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v1.1) (**_LEDs not tested_**)
