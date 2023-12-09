@@ -35,6 +35,7 @@ While in the **_.srcs_** folder, upload:
     - Fixed v2.1 bug
     - Updated so that all counters/load is capped at the MAX value
   - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.1)
+    - Changed nearly all input and output names to reduce the amount of words/letters
     - Add LEDs
       - switch to enable or disable input LEDs
       - clock en, alarm en, load for both alarm and clock, rst, minute rst
