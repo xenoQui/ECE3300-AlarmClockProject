@@ -38,6 +38,8 @@ While in the **_.srcs_** folder, upload:
       - 4 LEDs for load number
       - 4 LEDs to show which up counter is being loaded
     - Now when alarm load is high, only the alarm portion is changed; If clock load is high, only the clock can be changed.
+    - Updated [min.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/AlarmClock/v2.1/sources_1/new/min.v) to be 59, to more accurately represent 1 minute
+    - Added simulation for minute [min_tb.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.1/sim_1/new)
     - ❗ ISSUE: Clock does not reset back to 00:00 when past 23:59
       - Currently keeps 23:00, when past 23:59
   - [v2.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.0)
