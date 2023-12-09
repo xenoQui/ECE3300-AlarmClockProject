@@ -34,6 +34,10 @@ While in the **_.srcs_** folder, upload:
   - [v2.2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.2)
     - Fixed v2.1 bug
     - Updated so that all counters/load is capped at the MAX value
+    - Increased alarm sound to 5 mins
+    - Added clock_tb.v and the respective waveform
+    - Updated clock.v with a section dedicated for testbench/simulation
+      - comment and uncomment sections before running simulation
   - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.1)
     - Changed nearly all input and output names to reduce the amount of words/letters
     - Add LEDs
