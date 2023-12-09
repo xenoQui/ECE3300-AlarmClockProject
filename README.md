@@ -31,6 +31,9 @@ While in the **_.srcs_** folder, upload:
 
   _alarmclock.v is top file_
 
+  - [v2.2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.2)
+    - Fixed v2.1 bug
+    - Updated so that all counters/load is capped at the MAX value
   - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.1)
     - Add LEDs
       - switch to enable or disable input LEDs
