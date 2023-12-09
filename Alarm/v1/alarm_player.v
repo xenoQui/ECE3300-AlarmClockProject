@@ -27,7 +27,7 @@ module alarm_player(
                     input playerEnable,              
                     output reg audioOut, aud_sd             
                     );
-    reg first;
+
     reg [19:0] counter;
     reg [31:0] time1, noteTime;
     reg [9:0] number;
