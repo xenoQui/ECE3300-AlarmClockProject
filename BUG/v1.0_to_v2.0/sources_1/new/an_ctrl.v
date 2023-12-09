@@ -29,10 +29,10 @@ module an_ctrl(
     always@(an_ctrl_rc)
     begin
         case(an_ctrl_rc)
-//            3'd0:  an_out = 8'b11111110;   // an0 ON
-//            3'd1:  an_out = 8'b11111101;   // an1 ON
-//            3'd2:  an_out = 8'b11111011;   // an2 ON
-//            3'd3:  an_out = 8'b11110111;   // an3 ON
+            3'd0:  an_out = 8'b11111110;   // an0 ON
+            3'd1:  an_out = 8'b11111101;   // an1 ON
+            3'd2:  an_out = 8'b11111011;   // an2 ON
+            3'd3:  an_out = 8'b11110111;   // an3 ON
             3'd4:  an_out = 8'b11101111;   // an4 ON
             3'd5:  an_out = 8'b11011111;   // an5 ON
             3'd6:  an_out = 8'b10111111;   // an6 ON
