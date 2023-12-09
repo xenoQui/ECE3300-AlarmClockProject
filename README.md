@@ -31,12 +31,15 @@ While in the **_.srcs_** folder, upload:
 
   _alarmclock.v is top file_
 
-  - [v2.1]() (**_WIP_**)
+  - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.1)
     - Add LEDs
       - switch to enable or disable input LEDs
-      - clock en, alarm en, load, rst, minute rst
+      - clock en, alarm en, load for both alarm and clock, rst, minute rst
       - 4 LEDs for load number
       - 4 LEDs to show which up counter is being loaded
+    - Now when alarm load is high, only the alarm portion is changed; If clock load is high, only the clock can be changed.
+    - ❗ ISSUE: Clock does not reset back to 00:00 when past 23:59
+      - Currently keeps 23:00, when past 23:59
   - [v2.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.0)
     - Add alarm load functionality within clock
     - Create sound function and is played whenever the clock & alarm matches
