@@ -33,8 +33,6 @@ module ucb
     output flag
     );
     
-    reg [3:0] ucb_tmp;
-    
     // up counter bcd 0 -> 9 logic
     always@(posedge clk or posedge rst)
     begin
