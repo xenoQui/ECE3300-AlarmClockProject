@@ -26,10 +26,10 @@ module load_LR(
     input load_LR_en,
     input load_LR_left,
     input load_LR_right,
-    output reg [3:0] load_LR_out
+    output reg [7:0] load_LR_out
     );
     
-    reg [1:0] tmp;
+    reg [2:0] tmp;
     
     always@(posedge load_LR_clk)
     begin
@@ -49,12 +49,16 @@ module load_LR(
         if(load_LR_en)
         begin
             case(tmp)
-                2'd0:   load_LR_out = 4'b0001;
-                2'd1:   load_LR_out = 4'b0010;
-                2'd2:   load_LR_out = 4'b0100;
-                2'd3:   load_LR_out = 4'b1000;
+                3'd0:   load_LR_out = 8'b00000001;
+                3'd1:   load_LR_out = 8'b00000010;
+                3'd2:   load_LR_out = 8'b00000100;
+                3'd3:   load_LR_out = 8'b00001000;
+                3'd4:   load_LR_out = 8'b00010000;
+                3'd5:   load_LR_out = 8'b00100000;
+                3'd6:   load_LR_out = 8'b01000000;
+                3'd7:   load_LR_out = 8'b10000000;
                 
-                default:    load_LR_out = 4'd0;
+                default:    load_LR_out = 8'd0;
             endcase
         end
         else

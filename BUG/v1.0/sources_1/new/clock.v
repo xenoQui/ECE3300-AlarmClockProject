@@ -30,7 +30,8 @@ module clock(
     input clock_load_rst,           // button to reset load values
     input [1:0] clock_load_ud,      // button for load up/down      1: up   0: down
     input [1:0] clock_load_lr,      // button for load left/right   1: left 0: right
-    output [15:0] clock_out
+    output [15:0] clock_out,
+    output [15:0] alarm_out
     );
     
     // CLKS
@@ -55,7 +56,7 @@ module clock(
     // LOAD
     /*--------------------------------------------------------------------*/
     wire [3:0] load_value;
-    wire [3:0] load_LR_sel;
+    wire [7:0] load_LR_sel;
     // load value BCD 0 -> 9
     load_ud
         #(.MAX(9))
@@ -105,8 +106,8 @@ module clock(
         MIN_0(
         .ucb_clk(ucb_clk_cond),
         .ucb_rst(clock_rst || rst_24hr_wire),
-        .ucb_en(clock_en || load_LR_sel[0]),
-        .ucb_load(load_LR_sel[0]),
+        .ucb_en(clock_en || load_LR_sel[4]),
+        .ucb_load(load_LR_sel[4]),
         .ucb_load_num(load_value),
         .ucb_out(clock_out[3:0]),
         .ucb_flag(flag_tmp[0])
@@ -117,11 +118,11 @@ module clock(
         MIN_1(
         .ucb_clk(ucb_clk_cond),
         .ucb_rst(clock_rst || rst_24hr_wire),
-        .ucb_en(uc_AND[1] || load_LR_sel[1]),
-        .ucb_load(load_LR_sel[1]),
+        .ucb_en(uc_AND[1] || load_LR_sel[5]),
+        .ucb_load(load_LR_sel[5]),
         .ucb_load_num(load_value),
         .ucb_out(clock_out[7:4]),
-        .ucb_flag(flag_tmp[1])
+        .ucb_flag(flag_tmp[5])
         );
     // HR_0 up counter 0 -> 9
     ucb
@@ -129,8 +130,8 @@ module clock(
         HR_0(
         .ucb_clk(ucb_clk_cond),
         .ucb_rst(clock_rst || rst_24hr_wire),
-        .ucb_en(uc_AND[2] || load_LR_sel[2]),
-        .ucb_load(load_LR_sel[2]),
+        .ucb_en(uc_AND[2] || load_LR_sel[6]),
+        .ucb_load(load_LR_sel[6]),
         .ucb_load_num(load_value),
         .ucb_out(clock_out[11:8]),
         .ucb_flag(flag_tmp[2])
@@ -141,11 +142,59 @@ module clock(
         HR_1(
         .ucb_clk(ucb_clk_cond),
         .ucb_rst(clock_rst || rst_24hr_wire),
-        .ucb_en(uc_AND[3] || load_LR_sel[3]),
-        .ucb_load(load_LR_sel[3]),
+        .ucb_en(uc_AND[3] || load_LR_sel[7]),
+        .ucb_load(load_LR_sel[7]),
         .ucb_load_num(load_value),
         .ucb_out(clock_out[15:12]),
         .ucb_flag(flag_tmp[3])
         );
     
+    
+    
+    //LOAD FOR ALARM
+    
+    ucb
+        #(.MAX(9))
+        aMIN_0(
+        .ucb_clk(ucb_clk_cond),
+        .ucb_rst(clock_rst),  
+        .ucb_en(load_LR_sel[0]),
+        .ucb_load(load_LR_sel[0]),
+        .ucb_load_num(load_value),
+        .ucb_out(alarm_out[3:0])
+        );
+    // MIN_1 up counter 0 -> 5
+    ucb
+        #(.MAX(5))
+        aMIN_1(
+        .ucb_clk(ucb_clk_cond), 
+        .ucb_rst(clock_rst), 
+        .ucb_en(load_LR_sel[1]),
+        .ucb_load(load_LR_sel[1]),
+        .ucb_load_num(load_value),
+        .ucb_out(alarm_out[7:4])
+        );
+    // HR_0 up counter 0 -> 9
+    ucb
+        #(.MAX(9))
+        aHR_0(
+        .ucb_clk(ucb_clk_cond), 
+        .ucb_rst(clock_rst), 
+        .ucb_en(load_LR_sel[2]),
+        .ucb_load(load_LR_sel[2]),
+        .ucb_load_num(load_value),
+        .ucb_out(alarm_out[11:8])
+        );
+    // HR_1 up counter 0 -> 2
+    ucb
+        #(.MAX(2))
+        aHR_1(
+        .ucb_clk(ucb_clk_cond),    
+        .ucb_rst(clock_rst),    
+        .ucb_en(load_LR_sel[3]),
+        .ucb_load(load_LR_sel[3]),
+        .ucb_load_num(load_value),
+        .ucb_out(alarm_out[15:12])
+        );
+        
 endmodule

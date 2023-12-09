@@ -24,16 +24,17 @@
 module bcd_ctrl(
     input [2:0] bcd_ctrl_rc,        // from refresh counter
     input [15:0] bcd_ctrl_clock,
+    input [15:0] bcd_ctrl_alarm,
     output reg [3:0] bcd_ctrl_out
     );
     
     always@(bcd_ctrl_rc)
     begin
         case(bcd_ctrl_rc)
-//            3'd0:  bcd_ctrl_out = bcd_ctrl_bsr[3:0]; 
-//            3'd1:  bcd_ctrl_out = bcd_ctrl_bsr[7:4];
-//            3'd2:  bcd_ctrl_out = bcd_ctrl_bsr[11:8];
-//            3'd3:  bcd_ctrl_out = bcd_ctrl_bsr[15:12];
+            3'd0:  bcd_ctrl_out = bcd_ctrl_alarm[3:0]; 
+            3'd1:  bcd_ctrl_out = bcd_ctrl_alarm[7:4];
+            3'd2:  bcd_ctrl_out = bcd_ctrl_alarm[11:8];
+            3'd3:  bcd_ctrl_out = bcd_ctrl_alarm[15:12];
             3'd4:  bcd_ctrl_out = bcd_ctrl_clock[3:0];
             3'd5:  bcd_ctrl_out = bcd_ctrl_clock[7:4];
             3'd6:  bcd_ctrl_out = bcd_ctrl_clock[11:8];

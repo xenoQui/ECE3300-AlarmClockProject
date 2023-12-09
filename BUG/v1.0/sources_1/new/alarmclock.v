@@ -29,9 +29,12 @@ module alarmclock(
     input alarmclock_cm_load_rst,               // CM load reset
     input [1:0] alarmclock_cm_load_ud,          // CM load up/down      1: up       0: down
     input [1:0] alarmclock_cm_load_lr,          // CM load left/right   1: left     0: right
+    input alarm_enable,
 //    output [15:0] alarmclock_out_cm,            // CM out values
     output [7:0] alarmclock_an,
-    output [6:0] alarmclock_cc
+    output [6:0] alarmclock_cc,
+    output alarmclock_audioOut,
+    output alarmclock_aud_sd
     );
     
     // CLKS
@@ -50,6 +53,8 @@ module alarmclock(
     // CLOCK MODULE
     /*--------------------------------------------------------------------*/
     wire [15:0] cm_out;
+    wire [15:0] am_out;
+        
     clock CLOCK_MODULE(
         .clock_clk(alarmclock_clk),
         .clock_clk_load(clk_load),
@@ -60,8 +65,18 @@ module alarmclock(
         .clock_load_rst(alarmclock_cm_load_rst),        // button to reset load values
         .clock_load_ud(alarmclock_cm_load_ud),          // button for load up/down      1: up   0: down
         .clock_load_lr(alarmclock_cm_load_lr),          // button for load left/right   1: left 0: right
-        .clock_out(cm_out)
+        .clock_out(cm_out),
+        .alarm_out(am_out)
         );
+    
+    // ALARM MODULE
+    /*--------------------------------------------------------------------*/
+    alarm_player(
+                 .clk(alarmclock_clk),
+                 .playerEnable(((am_out == cm_out) ? 1 : 0) && alarm_enable),              
+                 .audioOut(alarmclock_audioOut), 
+                 .aud_sd(alarmclock_aud_sd)              
+                );
     
     // 7 SEG DISPLAY
     /*--------------------------------------------------------------------*/
@@ -89,6 +104,7 @@ module alarmclock(
     bcd_ctrl BCD_CTRL(
         .bcd_ctrl_rc(rc_wire),                  // from refresh counter
         .bcd_ctrl_clock(cm_out),
+        .bcd_ctrl_alarm(am_out),
         .bcd_ctrl_out(bc_wire)
         );
     // 7 seg display
