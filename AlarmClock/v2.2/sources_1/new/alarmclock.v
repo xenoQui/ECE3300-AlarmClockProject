@@ -74,7 +74,7 @@ module alarmclock(
     /*--------------------------------------------------------------------*/
     alarm_player ALARM_PLAYER(
                              .clk(ac_clk),
-                             .player_en(((alarm_val == clock_val) ? 1 : 0) && ac_alarm_en),              
+                             .player_en((((alarm_val <= clock_val) == (clock_val <= alarm_val+4'b0101)) ? 1 : 0) && ac_alarm_en),               
                              .audio_out(ac_audio_out), 
                              .aud_sd(ac_aud_sd)              
                              );
