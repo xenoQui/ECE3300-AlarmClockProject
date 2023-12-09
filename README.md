@@ -75,7 +75,7 @@ While in the **_.srcs_** folder, upload:
     - Edited [min.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/min.v) so that every 60 secs the counter will increment
     - Added `or posedge ucb_rst` to [ucb.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/ucb.v) as a condition for the always block
       - Allows the clock to be reset at any time
-    - Issues:
+    - ❗ Issues:
       1. Load is unable to change MIN_0 due to the minute clock
       2. When loading values into the clock, if it is 23:59 the clock automatically resets
   - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.1)
