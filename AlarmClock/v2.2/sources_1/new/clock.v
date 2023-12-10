@@ -57,7 +57,7 @@ module clock(
     // minute counter
     min CLK_MIN(
         .clk(clk_1Hz),
-        .rst(rst || min_rst || clock_load || alarm_load),
+        .rst(rst || min_rst || clock_load),
         .en(en && (clock_load == 0)),
         .out(min)                       // 60 sec
         );
