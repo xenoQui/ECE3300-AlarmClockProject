@@ -31,7 +31,7 @@ module alarm_player(
     reg [19:0] counter;
     reg [31:0] time1, noteTime;
     reg [9:0] number;
-    wire [4:0] note, duration;
+    wire [4:0] duration;
     wire [19:0] notePeriod;
     parameter clockFrequency = 100_000_000;
     
