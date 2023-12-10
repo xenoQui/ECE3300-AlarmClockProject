@@ -1,7 +1,9 @@
 `timescale 1ns /1ps
 ///////////////////////////////////////////////////////////////////
 // Authored by David J. Marion aka FPGA Dude
+// Edited by Rob Ranit
 // Created on 4/11/2022
+// Edited on 12/10/23
 //
 // Description: ROM containing 8x16 ascii characters 0-9 and :
 // for the VGA Clock

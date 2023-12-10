@@ -7,6 +7,8 @@
 // 
 // Adapted for the Basys 3 by David J. Marion
 // Comments by David J. Marion
+// Edited by Rob Ranit
+// Edited on 12/10/23
 //
 // FOR USE WITH AN FPGA THAT HAS A 100MHz CLOCK SIGNAL ONLY.
 // VGA Mode
