@@ -52,7 +52,7 @@ module alarm_rgb_led(
             PWM_b <= ~PWM_b;
         end else begin
             count <= count + 1; // Counts 100MHz clock
-            //try plus 11 lmao
+            // Try plus 11 lmao
         end
     end
     else begin
