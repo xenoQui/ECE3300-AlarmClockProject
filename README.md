@@ -1,4 +1,4 @@
-# ECE 3300 - Alarm Clock Final Project
+# ECE 3300 - FPGA Alarm Clock Implementation in Verilog
 
 ## Software & Hardware Details
 Software Version: [Xilinx Vivado ML Edition - 2023.1](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2023-1.html)
