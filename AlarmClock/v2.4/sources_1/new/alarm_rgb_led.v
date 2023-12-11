@@ -45,8 +45,8 @@ module alarm_match_rgb_led(
     if(led_enable)begin
         // Toggle the red LED every clock cycle
         PWM_r <= (pwm_counter_r < 8'hFD); // 8'bf 75% duty cycle
-        // can change to 8'hE6 for 90% or 8'hFD for 99% duty cycle
-        if (count == 99999999) begin
+        // Can change to 8'hE6 for 90% or 8'hFD for 99% duty cycle
+        if (count == 99999999) begin // Set to 100 for tb, 99999999 for demo)
             count <= 0;   // Reset count register
             
             // Increment PWM counter for red LED
@@ -64,7 +64,7 @@ module alarm_match_rgb_led(
             //try plus 11
         end
     end
-    else begin
+    else begin  //LEDs reset if the enable is turned off
     PWM_r <= 1'b0;
     PWM_g <= 1'b0;
     PWM_b <= 1'b0;
