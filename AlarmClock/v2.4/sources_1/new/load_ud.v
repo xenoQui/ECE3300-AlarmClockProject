@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+// load up/down
 module load_ud
     #(parameter MAX = 9)
     (
@@ -37,21 +38,9 @@ module load_ud
         else
         begin
             if(up)
-            begin
                 out <= (out >= MAX) ? 0 : out + 1;
-//                if(out >= MAX)
-//                    out <= 0;
-//                else
-//                    out <= out + 1;
-            end
             else if(down)
-            begin
                 out <= (out <= 0) ? MAX : out - 1;
-//                if(out <= 0)
-//                    out <= MAX;
-//                else
-//                    out <= out - 1;
-            end
         end
     end
     
