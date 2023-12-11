@@ -29,8 +29,18 @@ While in the **_.srcs_** folder, upload:
 
 - ### [AlarmClock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock) (Combined)
 
-  _alarmclock.v is top file_
+  _Note: alarm_clock.v is top file v2.4_
 
+  - [v2.4](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.4)
+    - Add PWM RGB LED
+    - Updated clock.v
+      - clock_clk_cond has additional en == 0 condition
+      - Added alarm_clk_cond for alarm load ucb
+  
+  _Note: alarmclock.v is top file v2.0 to v2.3_
+  
+  - [v2.3](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.3)
+    - Add VGA
   - [v2.2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.2)
     - Fixed v2.1 bug
     - Updated so that all counters/load is capped at the MAX value
