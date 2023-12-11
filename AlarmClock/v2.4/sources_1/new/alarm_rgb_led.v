@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module alarm_natch_rgb_led(
+module alarm_match_rgb_led(
     input clk, // Clock input
     input led_enable,
     output reg PWM_r, // Red LED
