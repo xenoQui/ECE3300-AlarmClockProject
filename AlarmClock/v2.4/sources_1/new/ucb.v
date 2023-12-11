@@ -43,13 +43,7 @@ module ucb
             if(load_en)
                 out <= (load_num > MAX) ? MAX : load_num;
             else
-            begin
                 out <= (out >= MAX) ? 0 : out + 1;
-//                if(out >= MAX)
-//                    out <= 0;
-//                else
-//                    out <= out + 1;
-            end
         end
     end
     
