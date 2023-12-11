@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+// minute counter
 module min(
     input clk,
     input rst,
@@ -36,13 +37,7 @@ module min(
             out <= 0;
         end
         else if(en)
-        begin
             count <= (count >= 59) ? 0 : count + 1;
-//            if(count >= 59)
-//                count <= 0;
-//            else
-//                count <= count + 1;
-        end
         
         out <= (count >= 59) ? 1 : 0;
     end
