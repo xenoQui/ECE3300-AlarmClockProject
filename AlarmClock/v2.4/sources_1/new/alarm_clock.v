@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module alarmclock(
+module alarm_clock(
     input ac_clk,
     input ac_rst,                           // alarm clock full reset
     input ac_min_rst,                       // minute counter reset
@@ -32,29 +32,19 @@ module alarmclock(
     input [1:0] ac_load_up_down,            // load up/down      1: up       0: down
     input [1:0] ac_load_left_right,         // load left/right   1: left     0: right
     input ac_led_en,                        // if high, disable all leds
-//    output [15:0] ac_clock_out,            // CM out values
     output [7:0] ac_an,
     output [6:0] ac_cc,
-    output reg [15:0] ac_led,                   // unused leds 13-11, 9 
+    output reg [15:0] ac_led,
     output ac_audio_out,
     output ac_aud_sd,
-    output hsync,           // to VGA Connector
-    output vsync,           // to VGA Connector
-    output [11:0] rgb,       // to DAC, to VGA Connector
+    output hsync,                           // to VGA Connector
+    output vsync,                           // to VGA Connector
+    output [11:0] rgb,                      // to DAC, to VGA Connector
     output LED_r,
     output LED_g,
     output LED_b,
     output alarm_en_rbg_led
     );
-    
-    wire clk_load;
-    // clk for load
-    clk_div
-        #(.SIZE(25000000))
-        CLK_LOAD(
-        .clk(ac_clk),
-        .clk_div(clk_load)              // 0.5 sec
-        );
     
     // CLOCK MODULE & ALARM LOAD
     /*--------------------------------------------------------------------*/
@@ -89,10 +79,11 @@ module alarmclock(
                              .alarm_b(LED_b)               
                              );
     
+    // PWM RGB LED
+    /*--------------------------------------------------------------------*/
     wire clk_led;
-  
     clk_div
-        #(.SIZE(2500))// 
+        #(.SIZE(2500))
         CLK_LED(
         .clk(ac_clk),
         .clk_div(clk_led)              
@@ -106,6 +97,7 @@ module alarmclock(
                             .Duty(8'h1F),
                             .PWM(alarm_en_rbg_led)
     );
+    
     // LEDs
     /*--------------------------------------------------------------------*/
     // LEDs for inputs and load outputs
@@ -164,6 +156,7 @@ module alarmclock(
         );
         
     // VGA Display
+    /*--------------------------------------------------------------------*/
     wire [9:0] w_x, w_y;
     wire video_on, p_tick;
     wire [3:0] hr_10s, hr_1s, min_10s, min_1s, sec_10s, sec_1s;
@@ -198,7 +191,7 @@ module alarmclock(
         .time_rgb(rgb_next)
         );
         
-         // rgb buffer
+    // rgb buffer
     always @(posedge ac_clk)
         if(p_tick)
             rgb_reg <= rgb_next;
