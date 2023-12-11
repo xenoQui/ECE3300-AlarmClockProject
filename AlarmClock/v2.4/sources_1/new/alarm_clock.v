@@ -43,7 +43,8 @@ module alarmclock(
     output [11:0] rgb,       // to DAC, to VGA Connector
     output LED_r,
     output LED_g,
-    output LED_b
+    output LED_b,
+    output alarm_en_rbg_led
     );
     
     wire clk_load;
@@ -88,6 +89,23 @@ module alarmclock(
                              .alarm_b(LED_b)               
                              );
     
+    wire clk_led;
+  
+    clk_div
+        #(.SIZE(2500))// 
+        CLK_LED(
+        .clk(ac_clk),
+        .clk_div(clk_led)              
+        );
+        
+    PWM_CORE #(.R_SIZE(8))ALRM_EN_LED(
+                            .clk(clk_led),
+                            .rst(rst),
+                            .en(ac_alarm_en),
+                            .load(1'b1),
+                            .Duty(8'h1F),
+                            .PWM(alarm_en_rbg_led)
+    );
     // LEDs
     /*--------------------------------------------------------------------*/
     // LEDs for inputs and load outputs
