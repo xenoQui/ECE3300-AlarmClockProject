@@ -36,49 +36,48 @@ module alarm_player(
     parameter clockFrequency = 100_000_000;
     
     alarm_sound aud(
-                    .number(number),
-                    .note(notePeriod),
-                    .duration(duration)
+                    .number(number),          //case statement input   
+                    .note(notePeriod),        //note frequency
+                    .duration(duration)       //note length
                     );
     
     alarm_rgb_led led_driver(
                     .clk(clk), // Clock input
                     .led_enable(player_en),
-                    .PWM_r(alarm_r), // Red LED
-                    .PWM_g(alarm_g), // Green LED
-                    .PWM_b(alarm_b) // Blue LED
+                    .PWM_r(alarm_r),           // Red LED
+                    .PWM_g(alarm_g),           // Green LED
+                    .PWM_b(alarm_b)            // Blue LED
                 );
     
     always@(posedge clk) 
       begin
         if (~player_en | rst)
             begin
-
                 counter <= 0;
                 time1 <= 0;
                 audio_out <= 1;
             end
 
-        aud_sd = 1;  
-        counter <= counter + 1; 
-        time1<= time1+1;
+        aud_sd = 1;                            //audio enable
+        counter <= counter + 1;                //increment counter
+        time1 <= time1 + 1;                       //increment time1
         
-        if(counter >= notePeriod) 
+        if(counter >= notePeriod)              //square wave at desired frequency
            begin
                 counter <= 0;
                 audio_out <= ~audio_out ; 
-           end //toggle audio output 
-        if(time1 >= noteTime) 
+           end                                  //toggle audio output 
+        
+        if(time1 >= noteTime)                   //note duration
             begin
                 time1 <= 0;
                 number <= number + 1; 
-            end  //play next note
-
+            end                                 //play next note
       end
 
-      always @(duration)
-      begin
-       noteTime = (duration * clockFrequency/8);  //number of   FPGA clock periods in one note.
-      end
+  always @(duration)
+    begin
+      noteTime = (duration * clockFrequency/8);  //number of FPGA clock periods in one note.
+    end
       
 endmodule
