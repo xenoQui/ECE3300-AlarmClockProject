@@ -22,6 +22,7 @@
 
 module alarm_match_rgb_led(
     input clk, // Clock input
+    input rst,
     input led_enable,
     output reg PWM_r, // Red LED
     output reg PWM_g, // Green LED
@@ -32,12 +33,19 @@ module alarm_match_rgb_led(
     reg [7:0] pwm_counter_r; // PWM counter for red LED
     parameter PWM_WIDTH = 8; // PWM resolution 
 
-    always @(posedge clk) begin
+    always @(posedge clk or posedge rst) begin
+     if (rst) begin
+        // Reset all signals on reset
+        PWM_r <= 1'b0;
+        PWM_g <= 1'b0;
+        PWM_b <= 1'b0;
+        count <= 0;
+        pwm_counter_r <= 8'h00;
+    end else begin
     if(led_enable)begin
         // Toggle the red LED every clock cycle
-        PWM_r <= (pwm_counter_r < 8'hBF); // 75% duty cycle
+        PWM_r <= (pwm_counter_r < 8'hFC); // 8'bf 75% duty cycle
         // can change to 8'hE6 for 90% or 8'hFC for 99% duty cycle
-
         if (count == 99999999) begin
             count <= 0;   // Reset count register
             
@@ -48,19 +56,19 @@ module alarm_match_rgb_led(
                 pwm_counter_r <= 0;
             end
             
-            // Toggle the green and blue LEDs
-            // Changes color from Red to White and vise versa
+            // Toggle the green and blue LEDs when count reaches its maximum
             PWM_g <= ~PWM_g;
             PWM_b <= ~PWM_b;
         end else begin
             count <= count + 1; // Counts 100MHz clock
-            //try plus 11 
+            //try plus 11
         end
     end
-    else begin              // Turns of LED when alarm enable is off
-    PWM_r <= 1'b0;      
+    else begin
+    PWM_r <= 1'b0;
     PWM_g <= 1'b0;
     PWM_b <= 1'b0;
     end
+   end
 end
 endmodule
