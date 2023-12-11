@@ -30,7 +30,7 @@ module clock(
     input load_num_rst,             // button to reset load values
     input [1:0] load_up_down,       // button for load up/down      1: up   0: down
     input [1:0] load_left_right,    // button for load left/right   1: left 0: right
-    output [7:0] led,               // 
+    output [7:0] led,               // leds for load_LR & load_ud
     output [15:0] clock_out,        // values of the clock
     output [15:0] alarm_out         // values of the alarm
     );
@@ -116,7 +116,7 @@ module clock(
     
     // up counter clk conditional
     wire clock_clk_cond;
-    assign clock_clk_cond = clock_load ? clk : min;
+    assign clock_clk_cond = (clock_load && (en == 0)) ? clk : min;
     
     // MIN_0 up counter 0 -> 9
     ucb
@@ -169,11 +169,14 @@ module clock(
     
     // LOAD FOR ALARM
     /*--------------------------------------------------------------------*/
+    // alarm load clk conditional
+    wire alarm_clk_cond;
+    assign alarm_clk_cond = alarm_load ? clk : min;
     // MIN_0 LOAD
     ucb
         #(.MAX(9))
         A_MIN0(
-        .clk(clk),
+        .clk(alarm_clk_cond),
         .rst(rst),  
         .en(load_LR[0]),
         .load_en(load_LR[0]),
@@ -184,7 +187,7 @@ module clock(
     ucb
         #(.MAX(5))
         A_MIN1(
-        .clk(clk), 
+        .clk(alarm_clk_cond), 
         .rst(rst), 
         .en(load_LR[1]),
         .load_en(load_LR[1]),
@@ -195,7 +198,7 @@ module clock(
     ucb
         #(.MAX(9))
         A_HR0(
-        .clk(clk), 
+        .clk(alarm_clk_cond), 
         .rst(rst), 
         .en(load_LR[2]),
         .load_en(load_LR[2]),
@@ -206,7 +209,7 @@ module clock(
     ucb
         #(.MAX(2))
         A_HR1(
-        .clk(clk),    
+        .clk(alarm_clk_cond),    
         .rst(rst),    
         .en(load_LR[3]),
         .load_en(load_LR[3]),
