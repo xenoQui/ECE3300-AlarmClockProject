@@ -102,15 +102,6 @@ module clock(
     always@(posedge rst_24hr_cond)
         rst_24hr <= ((en && (clock_out[11:8] >= 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3]) || ((clock_load == 0) && (clock_out[11:8] > 3) && flag_tmp[3])) ? 1 : 0;
     
-//    always@(posedge min)
-//    begin
-//        rst_24hr <= (en && (clock_out[11:8] >= 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3]) ? 1 : 0;
-////        if(en && (clock_out[11:8] == 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3])
-////            rst_24hr = 1;        {reset all clock up counters}
-////        else
-////            rst_24hr = 0;        {do nothing}
-//    end
-    
     // UP COUNTER FOR CLOCK
     /*--------------------------------------------------------------------*/
     // up counter enable based on previous counter
@@ -177,12 +168,17 @@ module clock(
     // alarm load clk conditional
     wire alarm_clk_cond;
     assign alarm_clk_cond = alarm_load ? clk : min;
+    
+    // alarm load rst after hr 24
+    wire alarm_rst_cond;
+    assign alarm_rst_cond = ((alarm_load == 0) && (alarm_out[15:12] >= 2) && (alarm_out[11:8] > 3)) ? 1 : 0;
+    
     // MIN_0 LOAD
     ucb
         #(.MAX(9))
         A_MIN0(
         .clk(alarm_clk_cond),
-        .rst(rst),  
+        .rst(rst || alarm_rst_cond),  
         .en(load_LR[0]),
         .load_en(load_LR[0]),
         .load_num(load_val),
@@ -193,7 +189,7 @@ module clock(
         #(.MAX(5))
         A_MIN1(
         .clk(alarm_clk_cond), 
-        .rst(rst), 
+        .rst(rst || alarm_rst_cond), 
         .en(load_LR[1]),
         .load_en(load_LR[1]),
         .load_num(load_val),
@@ -204,7 +200,7 @@ module clock(
         #(.MAX(9))
         A_HR0(
         .clk(alarm_clk_cond), 
-        .rst(rst), 
+        .rst(rst || alarm_rst_cond), 
         .en(load_LR[2]),
         .load_en(load_LR[2]),
         .load_num(load_val),
@@ -215,7 +211,7 @@ module clock(
         #(.MAX(2))
         A_HR1(
         .clk(alarm_clk_cond),    
-        .rst(rst),    
+        .rst(rst || alarm_rst_cond),
         .en(load_LR[3]),
         .load_en(load_LR[3]),
         .load_num(load_val),
