@@ -36,6 +36,8 @@ While in the **_.srcs_** folder, upload:
     - Updated clock.v
       - clock_clk_cond has additional en == 0 condition
       - Added alarm_clk_cond for alarm load ucb
+    - Added a condition to reset all clock counters when it is above 23:59
+      - Occurs when clock_load is low
   
   _Note: alarmclock.v is top file v2.0 to v2.3_
   
