@@ -26,7 +26,7 @@ module alarm_sound(
                     output reg [4:0] duration
                    );
                    
-    parameter SIXTEEN = 0.5;
+    parameter SIXTEEN = 0.5;          //timing parameters
     parameter EIGHTH = 1;
     parameter QUARTER = 2;
     parameter HALF = 4;
@@ -34,7 +34,7 @@ module alarm_sound(
     parameter TWO = 16;
     parameter FOUR = 32;
     
-    parameter C4 = 50000000/261.63;
+    parameter C4 = 50000000/261.63;    //note frequency parameters
     parameter Bb4 = 50000000/466.16;
     parameter G4 = 50000000/392;
     parameter C5 = 50000000/523.25;
@@ -42,9 +42,9 @@ module alarm_sound(
     parameter F4 = 50000000/349.23;
     parameter SP = 1;
     
-always@(number)
+  always@(number)                        //default alarm sound
     begin
-        case(number)
+        case(number)                      
         0: begin note = C4; duration = EIGHTH; end
         1: begin note = Bb4; duration = EIGHTH; end
         2: begin note = G4; duration = QUARTER; end
