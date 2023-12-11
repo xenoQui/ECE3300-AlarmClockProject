@@ -41,6 +41,7 @@ While in the **_.srcs_** folder, upload:
   
   - [v2.3](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.3)
     - Add VGA
+    - Using Final_Project_Constraints.xdc
   - [v2.2](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.2)
     - Fixed v2.1 bug
     - Updated so that all counters/load is capped at the MAX value
