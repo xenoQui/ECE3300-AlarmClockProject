@@ -177,7 +177,7 @@ module alarm_clock(
      pixel_clk_gen pclk(
         .clk(ac_clk),
         .video_on(video_on),
-        .alarm_status(((alarm_val == clock_val) ? 1 : 0) && ac_alarm_en),
+        .alarm_status(((clock_val <= alarm_val + 5) && (clock_val >= alarm_val) ? 1 : 0) && ac_alarm_en),
         .x(w_x),
         .y(w_y),
         .min_1s(clock_val[3:0]),
