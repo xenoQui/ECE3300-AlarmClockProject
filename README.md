@@ -62,7 +62,7 @@ While in the **_.srcs_** folder, upload:
     - Now when alarm load is high, only the alarm portion is changed; If clock load is high, only the clock can be changed.
     - Updated [min.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/AlarmClock/v2.1/sources_1/new/min.v) to be 59, to more accurately represent 1 minute
     - Added simulation for minute [min_tb.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.1/sim_1/new)
-    - ❗ ISSUE: Clock does not reset back to 00:00 when past 23:59
+    - ⚠️ ISSUE: Clock does not reset back to 00:00 when past 23:59
       - Currently keeps 23:00, when past 23:59
   - [v2.0](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/AlarmClock/v2.0)
     - Add alarm load functionality within clock
@@ -87,17 +87,14 @@ While in the **_.srcs_** folder, upload:
 
 - ### [Clock](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock) (Standalone)
 
-  _[v1 -> v3] clock.v is top file_
+  _Note: clock.v is top file_
   
-  - [v4]() (**_WIP_**)
-    - clock.v as module
-    - testbench
-  - [v3](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v3)
+  - [v3](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v3) (**Imported to AlarmClock v1.0**)
     - Updated MIN_0 counter timing to be 60 secs
     - Edited [min.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/min.v) so that every 60 secs the counter will increment
     - Added `or posedge ucb_rst` to [ucb.v](https://github.com/Synergy5761/ECE3300-AlarmClockProject/blob/main/Clock/v3/sources_1/new/ucb.v) as a condition for the always block
       - Allows the clock to be reset at any time
-    - ❗ Issues:
+    - ⚠️ Issues:
       1. Load is unable to change MIN_0 due to the minute clock
       2. When loading values into the clock, if it is 23:59 the clock automatically resets
   - [v2.1](https://github.com/Synergy5761/ECE3300-AlarmClockProject/tree/main/Clock/v2.1)
