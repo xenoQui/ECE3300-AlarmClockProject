@@ -36,6 +36,7 @@ module alarm_natch_rgb_led(
     if(led_enable)begin
         // Toggle the red LED every clock cycle
         PWM_r <= (pwm_counter_r < 8'hBF); // 75% duty cycle
+        // can change to 8'hE6 for 90% or 8'hFC for 99% duty cycle
 
         if (count == 99999999) begin
             count <= 0;   // Reset count register
