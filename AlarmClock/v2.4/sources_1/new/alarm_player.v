@@ -42,7 +42,7 @@ module alarm_player(
                     );
     
     alarm_rgb_led led_driver(
-                    .clk(clk), // Clock input
+                    .clk(clk),                 // Clock input
                     .led_enable(player_en),
                     .PWM_r(alarm_r),           // Red LED
                     .PWM_g(alarm_g),           // Green LED
