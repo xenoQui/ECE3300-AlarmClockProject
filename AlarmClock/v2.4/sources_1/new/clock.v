@@ -96,15 +96,20 @@ module clock(
     // RST FOR 23:59
     /*--------------------------------------------------------------------*/
     reg rst_24hr;
-    wire [3:0] flag_tmp;    
-    always@(posedge min)
-    begin
-        rst_24hr <= (en && (clock_out[11:8] >= 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3]) ? 1 : 0;
-//        if(en && (clock_out[11:8] == 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3])
-//            rst_24hr = 1;        {reset all clock up counters}
-//        else
-//            rst_24hr = 0;        {do nothing}
-    end
+    wire [3:0] flag_tmp;
+    wire rst_24hr_cond;
+    assign rst_24hr_cond = (((en || clock_load == 0) && (clock_out[11:8] > 3) && flag_tmp[3]) || clock_load) ? clk : min;
+    always@(posedge rst_24hr_cond)
+        rst_24hr <= ((en && (clock_out[11:8] >= 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3]) || ((clock_load == 0) && (clock_out[11:8] > 3) && flag_tmp[3])) ? 1 : 0;
+    
+//    always@(posedge min)
+//    begin
+//        rst_24hr <= (en && (clock_out[11:8] >= 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3]) ? 1 : 0;
+////        if(en && (clock_out[11:8] == 3) && (flag_tmp[1:0] == 2'b11) && flag_tmp[3])
+////            rst_24hr = 1;        {reset all clock up counters}
+////        else
+////            rst_24hr = 0;        {do nothing}
+//    end
     
     // UP COUNTER FOR CLOCK
     /*--------------------------------------------------------------------*/
